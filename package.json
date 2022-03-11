@@ -1,0 +1,29 @@
+{
+  "name": "smartedu",
+  "version": "1.0.0",
+  "description": "Education Portal",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagatayturkann/smartedu.git"
+  },
+  "keywords": [
+    "education",
+    "portal",
+    "nodejs"
+  ],
+  "author": "Çağatay Türkan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cagatayturkann/smartedu/issues"
+  },
+  "homepage": "https://github.com/cagatayturkann/smartedu#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  }
+}
