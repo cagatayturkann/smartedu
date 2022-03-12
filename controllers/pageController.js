@@ -9,3 +9,10 @@ exports.getAboutPage = (req, res) => {
 		pageName: "about",
 	});
 };
+
+
+exports.getRegisterPage = (req, res) => {
+	res.status(200).render("register", {
+		pageName: "register",
+	});
+};
