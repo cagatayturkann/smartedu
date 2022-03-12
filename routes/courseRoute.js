@@ -3,7 +3,7 @@ const courseController = require('../controllers/courseController');
 
 const router = express.Router();
 
-router.route('/').post(courseController.createCours);
+router.route('/').post(courseController.createCourse); //route('/') refers to http://localhost:3000/courses 
 router.route('/').get(courseController.getAllCourses);
 router.route('/:slug').get(courseController.getCourse);
 
