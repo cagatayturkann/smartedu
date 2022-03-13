@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 const router = express.Router();
 
 router.route('/signup').post(authController.createUser); //route('/') refers to http://localhost:3000/users/signup
-
+router.route('/login').post(authController.loginUser); //route('/') refers to http://localhost:3000/users/login
+router.route('/logout').get(authController.logoutUser);
 
 module.exports = router;
