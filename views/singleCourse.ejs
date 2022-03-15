@@ -17,10 +17,14 @@
 						<img src="/images/blog_single.jpg" alt="" class="img-fluid">
 					</div>
 					<div class="post-content">
+						<% if (user && !(user.courses.includes(course._id))) {%> 
 						<div class="post-date">
-							<span class="day">30</span>
-							<span class="month">Nov</span>
+							<form action="/courses/enroll" method="post">
+								<input type="hidden" name="courseId" value="<%= course._id %>">
+								<button class="btn btn-warning btn-lg text-white text-center"><span>ENROLL</span></button>
+							</form>
 						</div>
+						<% } %> 
 						<div class="meta-info-blog">
 							<span><i class="fa fa-calendar"></i> <a href="#">May 11, 2015</a> </span>
 						</div>

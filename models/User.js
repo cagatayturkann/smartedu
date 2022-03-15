@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const { use } = require('../routes/userRoute');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -23,6 +22,12 @@ const UserSchema = new Schema({
 		enum: ['student', 'teacher', 'admin'],
 		default: 'student',
 	},
+	courses: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Course',
+		},
+	],
 });
 
 UserSchema.pre('save', function (next) {

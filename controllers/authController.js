@@ -22,11 +22,9 @@ exports.loginUser = async (req, res) => {
 		await User.findOne({ email }, (err, user) => {
 			if (user) {
 				bcrypt.compare(password, user.password, (err, same) => {
-					if (same) {
 						//USER SESSION
 						req.session.userId = user._id;
 						res.status(200).redirect('/users/dashboard');
-					}
 				});
 			}
 		});
@@ -46,7 +44,7 @@ exports.logoutUser = async (req, res) => {
 };
 
 exports.getDashboardPage = async (req, res) => {
-	const user = await User.findOne({ _id: req.session.userId });
+	const user = await User.findOne({ _id: req.session.userId }).populate('courses');
 	const categories = await Category.find();
 	const courses = await Course.find({user:req.session.userId}) //course içindeki user id ile session içindeki user id örtüşenleri bulacak
 	res.status(200).render('dashboard', {
