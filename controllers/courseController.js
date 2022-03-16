@@ -10,12 +10,12 @@ exports.createCourse = async (req, res) => {
 			category: req.body.category,
 			user: req.session.userId,
 		});
+
+		req.flash('success', `${course.name} has been created successfully`);
 		res.status(201).redirect('/courses');
 	} catch (error) {
-		res.status(400).json({
-			status: 'Failed',
-			error,
-		});
+		req.flash('error', 'Something happened');
+		res.status(400).redirect('/course');
 	}
 };
 
@@ -42,7 +42,9 @@ exports.getAllCourses = async (req, res) => {
 				{ name: { $regex: '.*' + filter.name + '.*', $options: 'i' } },
 				{ category: filter.category },
 			],
-		}).sort('-createdAt').populate('user');
+		})
+			.sort('-createdAt')
+			.populate('user');
 		const categories = await Category.find();
 		res.status(200).render('courses', {
 			courses,
