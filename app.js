@@ -8,12 +8,13 @@ const pageRoute = require('./routes/pageRoute');
 const courseRoute = require('./routes/courseRoute');
 const categoryRoute = require('./routes/categoryRoute');
 const userRoute = require('./routes/userRoute');
+require('dotenv').config()
 
 const app = express();
 
 //Connect DB
 mongoose
-	.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.9bbp6.mongodb.net/smartedu-db?retryWrites=true&w=majority`, {
+	.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@smartedu.vg28h.mongodb.net/smartedu-db?retryWrites=true&w=majority`, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
