@@ -43,7 +43,7 @@ app.use(
 		resave: false,
 		saveUninitialized: true,
 		store: MongoStore.create({
-			mongoUrl: `mongodb://localhost:27017/smartedu-db`,
+			mongoUrl: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@smartedu.vg28h.mongodb.net/smartedu-db?retryWrites=true&w=majority`,
 		}),
 	})
 );
